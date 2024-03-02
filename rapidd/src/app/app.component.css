@@ -1,0 +1,22 @@
+table, th, td 
+{
+    margin: 10px 0;
+    border: solid 1px #333;
+    padding: 2px 4px;
+    font: 15px Verdana;
+    align-items: center;
+}
+th {
+    font-weight:bold;
+    background-color: rgb(143, 250, 214);
+}
+tr{
+    background-color: rgb(119, 108, 108);
+}
+
+
+table {
+    width: 100%;
+  }
+  
+  

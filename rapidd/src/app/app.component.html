@@ -1,0 +1,53 @@
+<div>
+<div style="text-align:center;">
+  <h1>RAPIDD EMPLOYEES DATA</h1>
+  <button style="background:black;color:white;padding:13px;border-radius:5px" (click)="getData()">Get Data</button>
+ </div>
+
+
+<div style="display:flex; justify-content: space-around; margin-top: 50px;">
+<div  *ngIf="paginationLength > 0">
+ <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+ 
+  <ng-container matColumnDef="EmployeeName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.EmployeeName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="totalworkingtime">
+    <th mat-header-cell *matHeaderCellDef> Total Working Time </th>
+    <td mat-cell *matCellDef="let element"> {{element.totalworkingtime}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+
+
+<mat-paginator (page)="pageEventLoad($event)"
+ [pageIndex]="pageIndex"
+ [length]="paginationLength"
+ [pageSize]="pageSize" 
+ [pageSizeOptions]="[5, 10, 20]" 
+ showFirstLastButtons>
+</mat-paginator>
+
+
+
+</div>
+<div   *ngIf="paginationLength > 0">
+  <canvas baseChart
+  [type]="'pie'"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend">
+</canvas></div>
+</div>
+</div>
+
+
